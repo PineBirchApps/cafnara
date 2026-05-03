@@ -1,78 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cafnara</title>
-  <meta name="description" content="Cafnara helps you track caffeine and understand when it may affect your sleep.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafnara — Caffeine tracker for iOS</title>
+  <meta name="description" content="Cafnara is a private, local-first caffeine tracker for iOS. Log drinks in a tap, see active caffeine in real time, and stay below your sleep-safe limit." />
+  <link rel="canonical" href="https://pinebirchapps.github.io/cafnara/" />
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    :root {
+      --accent: #784f33;
+      --accent-soft: #b07a4f;
+      --bg: #f2e6d1;
+      --bg-2: #ead6b3;
+      --surface: #fff8ec;
+      --text: #2d1f12;
+      --text-secondary: #6d5a45;
+      --card-stroke: rgba(120, 79, 51, 0.18);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --accent: #dbb387;
+        --accent-soft: #a98563;
+        --bg: #29211a;
+        --bg-2: #1f1812;
+        --surface: #342a21;
+        --text: #f4e8d6;
+        --text-secondary: #b6a387;
+        --card-stroke: rgba(219, 179, 135, 0.22);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body {
       margin: 0;
-      padding: 48px 24px;
-      background: #faf7f2;
-      color: #1f1f1f;
-      line-height: 1.6;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 60%, var(--surface) 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
-
-    main {
-      max-width: 760px;
-      margin: 0 auto;
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 56px;
     }
-
-    .card {
-      background: white;
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent);
+      display: grid;
+      place-items: center;
+      color: var(--surface);
+      font-weight: 700;
+      font-size: 20px;
     }
+    .brand { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+    nav { margin-left: auto; display: flex; gap: 20px; font-size: 15px; }
+    nav a { color: var(--text-secondary); }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin: 0 0 20px;
+      font-weight: 700;
     }
-
-    p {
-      font-size: 18px;
+    .hero p.lede {
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height: 1.45;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 0 32px;
     }
-
-    .button {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: #1f1f1f;
-      color: white;
-      text-decoration: none;
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--surface);
+      padding: 14px 22px;
+      border-radius: 14px;
       font-weight: 600;
+      font-size: 16px;
+    }
+    .cta:hover { text-decoration: none; opacity: 0.92; }
+    .cta-secondary {
+      color: var(--accent);
+      padding: 14px 18px;
+      font-weight: 500;
     }
 
-    nav {
-      margin-top: 32px;
+    section.features { margin-top: 80px; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
     }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--card-stroke);
+      border-radius: 22px;
+      padding: 24px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--text-secondary); }
 
-    nav a {
-      margin-right: 16px;
-      color: #1f1f1f;
+    section.privacy-block {
+      margin-top: 80px;
+      background: var(--surface);
+      border: 1px solid var(--card-stroke);
+      border-radius: 22px;
+      padding: 32px;
     }
+    section.privacy-block h2 { margin: 0 0 12px; font-size: 24px; letter-spacing: -0.02em; }
+    section.privacy-block p { margin: 0 0 12px; line-height: 1.55; color: var(--text-secondary); }
+
+    footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-stroke);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    footer .links { display: flex; gap: 18px; margin-left: auto; }
   </style>
 </head>
 <body>
-  <main>
-    <section class="card">
-      <h1>Cafnara</h1>
-      <p>
-        Cafnara helps you track caffeine, understand your daily intake,
-        and estimate when caffeine may be less likely to affect your sleep.
-      </p>
-
-      <a class="button" href="#">Download on the App Store</a>
-
+  <div class="container">
+    <header>
+      <div class="logo">C</div>
+      <div class="brand">Cafnara</div>
       <nav>
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html">Privacy</a>
         <a href="support.html">Support</a>
       </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Track your caffeine. Sleep better.</h1>
+      <p class="lede">Cafnara is a private, local-first caffeine tracker for iOS. Log a drink in a tap, watch active caffeine fade in real time, and stay below your sleep-safe limit.</p>
+      <div class="cta-row">
+        <a class="cta" href="#">Download on the App Store</a>
+        <a class="cta-secondary" href="support.html">Need help?</a>
+      </div>
     </section>
-  </main>
+
+    <section class="features">
+      <div class="features-grid">
+        <div class="card">
+          <h3>One-tap logging</h3>
+          <p>Quick-add cards for the drinks you actually have. Reorder, hide, or add your own custom coffees.</p>
+        </div>
+        <div class="card">
+          <h3>Live caffeine estimate</h3>
+          <p>Half-life modelling shows what is still active in your system right now, not just what you drank.</p>
+        </div>
+        <div class="card">
+          <h3>Sleep-safe limit</h3>
+          <p>Set a bedtime and a personal sensitivity. Cafnara warns you when a late coffee is likely to bite.</p>
+        </div>
+        <div class="card">
+          <h3>Trends that make sense</h3>
+          <p>Week, month, and year views with averages, late-coffee insights, and your typical last cup time.</p>
+        </div>
+        <div class="card">
+          <h3>Private iCloud sync</h3>
+          <p>Your history syncs across your devices through your private iCloud. Nothing goes to our servers.</p>
+        </div>
+        <div class="card">
+          <h3>Designed for iOS 26</h3>
+          <p>Native SwiftUI, Dynamic Type, full localisation in 11 languages, and a calm coffee-toned interface.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy-block">
+      <h2>Privacy by default</h2>
+      <p>Cafnara stores your data on your device. If you are signed in to iCloud, it syncs through your own private CloudKit container — the developer cannot read it. There is no analytics SDK, no advertising, and no third-party tracking.</p>
+      <p><a href="privacy.html">Read the full privacy policy →</a></p>
+    </section>
+
+    <footer>
+      <div>© 2026 Pinebirch Apps</div>
+      <div class="links">
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+        <a href="mailto:maximsachok+cafnara@gmail.com">Contact</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
