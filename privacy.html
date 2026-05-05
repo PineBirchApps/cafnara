@@ -6,111 +6,25 @@
   <title>Privacy Policy — Cafnara</title>
   <meta name="description" content="Cafnara privacy policy. Local-first storage, private iCloud sync, no third-party tracking." />
   <link rel="canonical" href="https://pinebirchapps.github.io/cafnara/privacy.html" />
-  <style>
-    :root {
-      --accent: #784f33;
-      --accent-soft: #b07a4f;
-      --bg: #f2e6d1;
-      --bg-2: #ead6b3;
-      --surface: #fff8ec;
-      --text: #2d1f12;
-      --text-secondary: #6d5a45;
-      --card-stroke: rgba(120, 79, 51, 0.18);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --accent: #dbb387;
-        --accent-soft: #a98563;
-        --bg: #29211a;
-        --bg-2: #1f1812;
-        --surface: #342a21;
-        --text: #f4e8d6;
-        --text-secondary: #b6a387;
-        --card-stroke: rgba(219, 179, 135, 0.22);
-      }
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
-      background: linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 60%, var(--surface) 100%);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      line-height: 1.55;
-    }
-    a { color: var(--accent); }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-    header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 48px;
-    }
-    .logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 11px;
-      background: var(--accent);
-      display: grid;
-      place-items: center;
-      color: var(--surface);
-      font-weight: 700;
-      font-size: 18px;
-    }
-    .brand { font-size: 18px; font-weight: 600; }
-    nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
-    nav a { color: var(--text-secondary); text-decoration: none; }
-
-    h1 {
-      font-size: clamp(32px, 5vw, 44px);
-      letter-spacing: -0.025em;
-      margin: 0 0 8px;
-    }
-    .effective {
-      color: var(--text-secondary);
-      font-size: 14px;
-      margin: 0 0 40px;
-    }
-    h2 {
-      font-size: 22px;
-      letter-spacing: -0.015em;
-      margin: 36px 0 12px;
-    }
-    p, li { color: var(--text); font-size: 16px; }
-    p { margin: 0 0 14px; }
-    ul { padding-left: 22px; margin: 0 0 18px; }
-    li { margin-bottom: 6px; }
-
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--card-stroke);
-      border-radius: 22px;
-      padding: 28px;
-      margin-top: 16px;
-    }
-
-    footer {
-      margin-top: 64px;
-      padding-top: 24px;
-      border-top: 1px solid var(--card-stroke);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-    footer .links { display: flex; gap: 18px; margin-left: auto; }
-    footer a { color: var(--text-secondary); text-decoration: none; }
-  </style>
+  <link rel="alternate" hreflang="x-default" href="https://pinebirchapps.github.io/cafnara/privacy.html" />
+  <link rel="alternate" hreflang="en" href="https://pinebirchapps.github.io/cafnara/privacy.html" />
+  <link rel="alternate" hreflang="cs" href="https://pinebirchapps.github.io/cafnara/privacy-cs.html" />
+  <link rel="alternate" hreflang="de" href="https://pinebirchapps.github.io/cafnara/privacy-de.html" />
+  <link rel="alternate" hreflang="es" href="https://pinebirchapps.github.io/cafnara/privacy-es.html" />
+  <link rel="alternate" hreflang="fr" href="https://pinebirchapps.github.io/cafnara/privacy-fr.html" />
+  <link rel="alternate" hreflang="it" href="https://pinebirchapps.github.io/cafnara/privacy-it.html" />
+  <link rel="alternate" hreflang="ja" href="https://pinebirchapps.github.io/cafnara/privacy-ja.html" />
+  <link rel="alternate" hreflang="ko" href="https://pinebirchapps.github.io/cafnara/privacy-ko.html" />
+  <link rel="alternate" hreflang="nl" href="https://pinebirchapps.github.io/cafnara/privacy-nl.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://pinebirchapps.github.io/cafnara/privacy-pt-br.html" />
+  <link rel="alternate" hreflang="ru" href="https://pinebirchapps.github.io/cafnara/privacy-ru.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://pinebirchapps.github.io/cafnara/privacy-zh-hans.html" />
+  <link rel="stylesheet" href="privacy.css" />
 </head>
 <body>
   <div class="container">
     <header>
-      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+      <a class="home-link" href="index.html">
         <div class="logo">C</div>
         <div class="brand">Cafnara</div>
       </a>
@@ -119,6 +33,22 @@
         <a href="support.html">Support</a>
       </nav>
     </header>
+
+    <div class="language-list" aria-label="Privacy policy language versions">
+      <span>Language:</span>
+      <a href="privacy.html" aria-current="page">English</a>
+      <a href="privacy-cs.html">Čeština</a>
+      <a href="privacy-de.html">Deutsch</a>
+      <a href="privacy-es.html">Español</a>
+      <a href="privacy-fr.html">Français</a>
+      <a href="privacy-it.html">Italiano</a>
+      <a href="privacy-ja.html">日本語</a>
+      <a href="privacy-ko.html">한국어</a>
+      <a href="privacy-nl.html">Nederlands</a>
+      <a href="privacy-pt-br.html">Português (Brasil)</a>
+      <a href="privacy-ru.html">Русский</a>
+      <a href="privacy-zh-hans.html">简体中文</a>
+    </div>
 
     <h1>Privacy Policy</h1>
     <p class="effective">Last updated: 3 May 2026</p>
